@@ -1,19 +1,16 @@
 <template>
-  <Topnav />
-  <div class="banner">
-    <h1>Zoe UI</h1>
-    <h2>一个非常使用的 UI 框架</h2>
-    <p class="actions">
-      <a href="">Github</a>
-      <a href="">开始</a>
-    </p>
+  <div>
+    <div class="topnav">
+      <div class="logo">logo</div>
+      <ul class="menu">
+        <li>菜单1</li>
+        <li>菜单2</li>
+      </ul>
+    </div>
   </div>
 </template>
 <script lang="ts">
-import Topnav from "../components/Topnav.vue";
-export default {
-  components: { Topnav },
-};
+export default {};
 </script>
 <style lang="scss" scoped>
 .topnav {
