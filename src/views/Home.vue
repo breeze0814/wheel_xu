@@ -1,12 +1,14 @@
 <template>
-  <Topnav />
-  <div class="banner">
-    <h1>Zoe UI</h1>
-    <h2>一个非常实用的 UI 框架</h2>
-    <p class="actions">
-      <a href="https://github.com/Flank-XU">Github</a>
-      <router-link to="/doc" >开始</router-link>
-    </p>
+  <div>
+    <Topnav />
+    <div class="banner">
+      <h1>Zoe UI</h1>
+      <h2>一个非常实用的 UI 框架</h2>
+      <p class="actions">
+        <a href="https://github.com/Flank-XU">Github</a>
+        <router-link to="/doc">开始</router-link>
+      </p>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -23,10 +25,10 @@ export default {
   align-items: center;
   flex-direction: column;
   background: lightgreen;
-  > .actions{
+  > .actions {
     padding: 8px 0;
     a {
-      margin:0 8px;
+      margin: 0 8px;
       background: #fff;
       display: inline-block;
       $h: 28px;
