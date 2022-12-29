@@ -1,7 +1,25 @@
 <template>
-  <button><span></span></button>
+  <button @click="toggle" 
+  
+    :class="{ checked }">
+    <!-- class根据checked布尔值来改变样式 -->
+    <span></span>
+  </button>
 </template>
+<script lang="ts">
+import { ref } from "vue";
 
+export default {
+  setup() {
+    const checked = ref(false);
+    //click时触发这函数
+    const toggle = () => {
+      checked.value = !checked.value;
+    };
+    return { checked, toggle };
+  },
+};
+</script>
 <style lang="scss" scoped>
 $h: 22px;
 $h2: $h - 4px;
@@ -12,6 +30,7 @@ button {
   background: blue;
   border-radius: calc(#{$h}/ 2);
   position: relative;
+  
 }
 span {
   position: absolute;
@@ -21,8 +40,15 @@ span {
   width: $h2;
   background: white;
   border-radius: calc(#{$h2}/ 2);
+  transition: left 100ms;
 }
-button:hover > span {
-    left: calc(100% - #{$h2} - 2px);
+button.checked {
+  background: blue;
+}
+button.checked > span {
+  left: calc(100% - #{$h2} - 2px);
+}
+button:focus{
+    outline: none;
   }
 </style>
