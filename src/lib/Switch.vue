@@ -26,7 +26,7 @@ button {
   height: $h;
   width: $h * 2;
   border: none;
-  background: blue;
+  background: #bfbfbf;
   border-radius: calc(#{$h}/ 2);
   position: relative;
 }
@@ -38,10 +38,10 @@ span {
   width: $h2;
   background: white;
   border-radius: calc(#{$h2}/ 2);
-  transition: left 100ms;
+  transition: all 100ms;
 }
 button.checked {
-  background: blue;
+  background: #1890ff;
 }
 button.checked > span {
   left: calc(100% - #{$h2} - 2px);
