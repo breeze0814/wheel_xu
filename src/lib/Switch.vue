@@ -1,22 +1,21 @@
 <template>
-  <button @click="toggle" 
-  
-    :class="{ checked }">
+  <button @click="toggle" :class="{ checked: flag }">
     <!-- class根据checked布尔值来改变样式 -->
     <span></span>
   </button>
 </template>
 <script lang="ts">
-import { ref } from "vue";
-
 export default {
-  setup() {
-    const checked = ref(false);
+  props: {
+    flag: Boolean,
+  },
+  setup(props, context) {
     //click时触发这函数
     const toggle = () => {
-      checked.value = !checked.value;
+      //触发input事件  然后更改props.xxxx的值
+      context.emit("update:flag", !props.flag);
     };
-    return { checked, toggle };
+    return { toggle };
   },
 };
 </script>
@@ -30,7 +29,6 @@ button {
   background: blue;
   border-radius: calc(#{$h}/ 2);
   position: relative;
-  
 }
 span {
   position: absolute;
@@ -48,7 +46,7 @@ button.checked {
 button.checked > span {
   left: calc(100% - #{$h2} - 2px);
 }
-button:focus{
-    outline: none;
-  }
+button:focus {
+  outline: none;
+}
 </style>
