@@ -1,5 +1,5 @@
 <template>
-  <button class="zoe-button" :class="classes">
+  <button class="zoe-button" :class="classes" :disabled="disabled">
     <slot />
   </button>
 </template>
@@ -22,6 +22,10 @@ export default {
       type: String,
       default: "normal",
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   setup(props) {
     const { theme, size, level } = props;
@@ -43,6 +47,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
+$grey: grey;
 .zoe-button {
   box-sizing: border-box;
   height: $h;
@@ -146,6 +151,22 @@ $red: red;
       &:focus {
         color: darken($red, 10%);
       }
+    }
+  }
+  &.zoe-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  &.zoe-theme-link,
+  &.zoe-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
     }
   }
 }
