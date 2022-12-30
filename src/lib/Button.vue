@@ -83,17 +83,16 @@ $radius: 4px;
       background: darken(white, 5%);
     }
   }
-  &.zoe-theme-button {
-    &.zoe-size-big {
-      font-size: 24px;
-      height: 48px;
-      padding: 0 16px;
-    }
-    &.zoe-size-small {
-      font-size: 12px;
-      height: 20px;
-      padding: 0 4px;
-    }
+
+  &.zoe-size-big {
+    font-size: 24px;
+    height: 48px;
+    padding: 0 16px;
+  }
+  &.zoe-size-small {
+    font-size: 12px;
+    height: 20px;
+    padding: 0 4px;
   }
 }
 </style>
