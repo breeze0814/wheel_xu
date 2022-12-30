@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggle" :class="{ checked: flag }">
+  <button class="zoe-switch" @click="toggle" :class="{ 'zoe-checked': flag }">
     <!-- class根据checked布尔值来改变样式 -->
     <span></span>
   </button>
@@ -22,31 +22,43 @@ export default {
 <style lang="scss" scoped>
 $h: 22px;
 $h2: $h - 4px;
-button {
+.zoe-switch {
   height: $h;
   width: $h * 2;
   border: none;
   background: #bfbfbf;
   border-radius: calc(#{$h}/ 2);
   position: relative;
-}
-span {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  height: $h2;
-  width: $h2;
-  background: white;
-  border-radius: calc(#{$h2}/ 2);
-  transition: all 100ms;
-}
-button.checked {
-  background: #1890ff;
-}
-button.checked > span {
-  left: calc(100% - #{$h2} - 2px);
-}
-button:focus {
-  outline: none;
+  > span {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    height: $h2;
+    width: $h2;
+    background: white;
+    border-radius: calc(#{$h2}/ 2);
+    transition: all 100ms;
+  }
+  &.zoe-checked {
+    background: #1890ff;
+    > span {
+      left: calc(100% - #{$h2} - 2px);
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+  &:active {
+    > span {
+      width: $h2 + 4px;
+    }
+  }
+  &.zoe-checked:active {
+    > span {
+      width: $h2 + 4px;
+      margin-left: -4px;
+    }
+  }
 }
 </style>
