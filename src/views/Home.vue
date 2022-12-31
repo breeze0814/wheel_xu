@@ -14,25 +14,25 @@
     <div class="features">
       <ul>
         <li>
-          <svg class="icon">
+          <svg>
             <use xlink:href="#icon-Vue"></use>
           </svg>
           <h3>基于 Vue 3</h3>
           <p>骄傲地使用了 Vue 3 Composition API</p>
         </li>
         <li>
-          <svg class="icon">
+          <svg>
             <use xlink:href="#icon-typescript-def"></use>
-            <h3>基于 TypeScript</h3>
-            <p>源代码采用 TypeScript 书写（非严格检查）</p>
           </svg>
+          <h3>基于 TypeScript</h3>
+          <p>源代码采用 TypeScript 书写（非严格检查）</p>
         </li>
         <li>
-          <svg class="icon">
+          <svg>
             <use xlink:href="#icon-lights"></use>
-            <h3>代码易读</h3>
-            <p>每个组件的源代码都极其简洁</p>
           </svg>
+          <h3>代码易读</h3>
+          <p>每个组件的源代码都极其简洁</p>
         </li>
       </ul>
     </div>
@@ -61,15 +61,26 @@ $color: #007974;
   width: 400px;
   @media (min-width: 800px) {
     width: 800px;
+    > ul {
+      > li {
+        width: 50%;
+      }
+    }
   }
+
   @media (min-width: 1200px) {
     width: 1200px;
+    > ul {
+      > li {
+        width: 33.3333%;
+      }
+    }
   }
+
   > ul {
     display: flex;
     flex-wrap: wrap;
     > li {
-      width: 400px;
       margin: 16px 0;
       display: grid;
       justify-content: start;

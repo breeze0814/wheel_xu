@@ -19,7 +19,6 @@
     </div>
     <div class="zoe-tabs-content">
       <component
-        class="zoe-tabs-content-item"
         :is="current"
         :key="current.props.title"
       />
@@ -41,13 +40,14 @@ export default {
     const container = ref<HTMLDivElement>(null);
     onMounted(() => {
       watchEffect(() => {
+        console.log('1111');
         // 获取当前选中元素的宽度
         const { width } = selectedItem.value.getBoundingClientRect();
         indicator.value.style.width = width + "px";
         const { left: left1 } = selectedItem.value.getBoundingClientRect();
         const { left: left2 } = container.value.getBoundingClientRect();
         indicator.value.style.left = left1 - left2 + "px";
-      });
+      },{flush:'post'});
     });
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
@@ -103,7 +103,6 @@ $border-color: #d9d9d9;
       background: $blue;
       left: 0;
       bottom: -1px;
-      width: 100px;
       transition: all 300ms;
     }
   }

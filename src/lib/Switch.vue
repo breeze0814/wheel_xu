@@ -1,5 +1,8 @@
 <template>
-  <button class="zoe-switch" @click="toggle" :class="{ 'zoe-checked': flag }">
+  <button 
+  class="zoe-switch" 
+  @click="toggle" 
+  :class="{ 'zoe-checked': value }">
     <!-- class根据checked布尔值来改变样式 -->
     <span></span>
   </button>
@@ -7,13 +10,13 @@
 <script lang="ts">
 export default {
   props: {
-    flag: Boolean,
+    value: Boolean,
   },
   setup(props, context) {
     //click时触发这函数
     const toggle = () => {
       //触发input事件  然后更改props.xxxx的值
-      context.emit("update:flag", !props.flag);
+      context.emit("update:value", !props.value);
     };
     return { toggle };
   },
